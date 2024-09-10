@@ -231,7 +231,7 @@ end
 queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/SourceDNR/Apollo/main/autofling.lua'))()")
 
 task.spawn(function()
-wait(50)
+wait(150)
 Instance.new("Hint", workspace).Text = "Teleporting in 10 seconds"
 wait(10)
 game:GetService("TeleportService"):Teleport(11093852045, game.Players.LocalPlayer)
