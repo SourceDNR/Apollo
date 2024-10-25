@@ -8,9 +8,9 @@ There are currently 2 methods:
 
 ]]--
 
-local Level2Execution = true -- Turn this on only if you have a lvl 2 executor without HTTP support and custom functions or the script doesnt run on your executor
+local Level2Execution = false -- Turn this on only if you have a lvl 2 executor without HTTP support and custom functions or the script doesnt run on your executor
 
-local latestVersion:number = 2.0
+local latestVersion:number = 2.0 -- Offline mode
 local method:number = 2
 local size:number = 100000 -- only for 1st method
 
