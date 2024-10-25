@@ -10,7 +10,7 @@ There are currently 2 methods:
 
 local Level2Execution = false -- Turn this on only if you have a lvl 2 executor without HTTP support and custom functions or the script doesnt run on your executor
 
-local latestVersion:number = 2.0 -- Offline mode
+local latestVersion:number = 2.0
 local method:number = 2
 local size:number = 100000 -- only for 1st method
 
@@ -55,16 +55,12 @@ if version < latestVersion then
 	if setclipboard then
 		setclipboard(game:HttpGet("https://raw.githubusercontent.com/SourceDNR/Apollo/refs/heads/main/ServerCrasher.lua"))
 		message("You're running an outdated version of this script, the new script has been copied to your clipboard.", 10)
-		task.wait(10)
 		error("l")
 	else
 		message("You're running an outdated version of this script, please use the new script (Github account: SourceDNR)", 10)
-		task.wait(10)
 		error("l")
 	end
 end
-
-task.wait(10)
 
 if method == 1 then
 	message("Crashing server in 5 seconds | Method selected: ".. method, 5)
