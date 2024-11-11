@@ -1,5 +1,5 @@
--- this script will turn you into a giant in Apollo's game
--- i didnt put much effort into it but its good enough
+-- Nazi cube script
+
 local size = 0
 
 local args = {
@@ -39,7 +39,7 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage"):WaitForChild("BloxbizRemotes"):WaitForChild("CatalogOnApplyOutfit"):FireServer(unpack(args))
-task.wait(2)
+task.wait(1)
 
 local args = {
     [1] = {
@@ -50,7 +50,7 @@ local args = {
 
 game:GetService("ReplicatedStorage"):WaitForChild("BloxbizRemotes"):WaitForChild("CatalogOnApplyToRealHumanoid"):FireServer(unpack(args))
 
-task.wait(6)
+task.wait(1)
 
 local args = {
     [1] = {
