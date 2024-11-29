@@ -4,7 +4,9 @@
 
 There are currently 2 methods:
 1st) Original crash script, it mainly lags the server instead of crashing it
-2nd) New crash script, it crashes the server by DOSing the server
+2nd) New crash script, it crashes the server by DOSing the server -- PATCHED
+
+Dumbass denis doesnt understand 2nd method has been patched for months now
 
 ]]--
 
@@ -12,7 +14,7 @@ local Level2Execution = false -- Turn this on only if you have a lvl 2 executor 
 
 local instant = false -- set to true if you want to instantly crash without having to wait 5 seconds
 local latestVersion:number = 2.1
-local method:number = 2
+local method:number = 1
 local size:number = 100000 -- only for 1st method
 
 -- Dont change anything below
